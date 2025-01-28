@@ -12,7 +12,7 @@
 
 
 ## **Link do vídeo de Ensaio**
-
+https://drive.google.com/file/d/120fpWD6Y9wA-tB3xdyNqKnIiiZ1wwcCg/view?usp=sharing
 
 ## **Descrição do Projeto**
 Este projeto utiliza o Raspberry Pi Pico W, um teclado matricial 4x4 e uma matriz de LEDs coloridos (5x5 WS2812) para criar animações visuais, simulando o funcionamento da matriz de leds no ambiente de desenvolvimento Wokwi. O sistema permite controlar as animações por meio das teclas do teclado matricial.
