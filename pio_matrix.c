@@ -9,6 +9,7 @@
 #define ROWS 4
 #define COLS 4
 #define LED_PIN 14
+#define BUZZER_PIN 21
 
 const uint8_t row_pins[ROWS] = {9, 8, 7, 6};
 const uint8_t col_pins[COLS] = {5, 4, 3, 2};
@@ -83,7 +84,8 @@ void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r
 
 // Função principal
 int main()
-{
+{   
+    bool condition = true;
     double intensidade;
     double r = 0.0, b = 0.0, g = 0.0;
     uint32_t valor_led;
@@ -96,10 +98,9 @@ int main()
 
     iniciar_teclado();
 
-    while (true)
+    while (condition)
     {
         char tecla = get_tecla();
-
         switch (tecla)
         {
         case '0':
@@ -118,6 +119,7 @@ int main()
             sleep_ms(500);
             desenho_pio(desenhomiddle5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '1':
             setIntensidade(circulo, global_intensidade);
@@ -135,6 +137,7 @@ int main()
             sleep_ms(1000);
             desenho_pio(quadrado, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '2':
             setIntensidade(estrela, global_intensidade);
@@ -152,6 +155,7 @@ int main()
             sleep_ms(1000);
             desenho_pio(rosto, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '3':
             setIntensidade(letraT, global_intensidade);
@@ -169,6 +173,7 @@ int main()
             sleep_ms(1100);
             desenho_pio(exclamacao, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1100);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '4':
             setIntensidade(numero1, global_intensidade);
@@ -186,6 +191,7 @@ int main()
             sleep_ms(1500);
             desenho_pio(numero5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1500);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '5':
             setIntensidade(animacao_5_frame1, global_intensidade);
@@ -203,6 +209,7 @@ int main()
             sleep_ms(1000);
             desenho_pio(animacao_5_frame5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '6':
             setIntensidade(animacao_6_frame1, global_intensidade);
@@ -220,6 +227,45 @@ int main()
             sleep_ms(1000);
             desenho_pio(animacao_6_frame5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(1000);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+            break;
+        case '7':
+            setIntensidade(desenho_numero7a, 1.0);
+            setIntensidade(desenho_numero7b, 1.0);
+            setIntensidade(desenho_numero7c, 1.0);
+            setIntensidade(desenho_numero7d, 1.0);
+            desenho_pio(desenho_numero7a, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7b, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7c, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7b, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(desenho_numero7d, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            sleep_ms(1000);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+            break;
+        case '8':
+            setIntensidade(desenho_numero8a, 1.0);
+            setIntensidade(desenho_numero8b, 1.0);
+            setIntensidade(desenho_numero8c, 1.0);
+            setIntensidade(desenho_numero8d, 1.0);
+            setIntensidade(desenho_numero8e, 1.0);
+            setIntensidade(desenho_numero8f, 1.0);
+            desenho_pio(desenho_numero8a, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8b, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8c, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8d, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8e, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(desenho_numero8f, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            sleep_ms(500);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case '9':
             setIntensidade(desenhocorner1, global_intensidade);
@@ -237,42 +283,58 @@ int main()
             sleep_ms(500);
             desenho_pio(desenhocorner5, valor_led, pio, sm, global_r, global_g, global_b);
             sleep_ms(500);
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case 'A':
-            global_r = 0.0;
-            global_g = 0.0;
-            global_b = 0.0;
+            desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
         case 'B':
-            global_r = 0.0;
-            global_g = 0.0;
-            global_b = 1.0;
-            global_intensidade = 1.0;
+            desenho_pio(ledsLigados, valor_led, pio, sm, 0.0, 0.0, 1.0);
+            while (1) {
+                char tecla = get_tecla();
+                if (tecla != 'B') {
+                    desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+                    break;
+                }
+            }
             break;
         case 'C':
-            global_r = 1.0;
-            global_g = 0.0;
-            global_b = 0.0;
-            global_intensidade = 0.8;
+            setIntensidade(ledsLigados, 0.8);
+            desenho_pio(ledsLigados, valor_led, pio, sm, 1.0, 0.0, 0.0);
+            while (1) {
+                char tecla = get_tecla();
+                if (tecla != 'C') {
+                    desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+                    break;
+                }
+            }
             break;
-        case 'D':
-            global_r = 0.0;
-            global_g = 1.0;
-            global_b = 0.0;
-            global_intensidade = 0.5;
+        case 'D':   
+            setIntensidade(ledsLigados, 0.5);
+            desenho_pio(ledsLigados, valor_led, pio, sm, 0.0, 1.0, 0.0);
+            while (1) {
+                char tecla = get_tecla();
+                if (tecla != 'D') {
+                    desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+                    break;
+                }
+            }
             break;
         case '#':
-            global_r = 1.0;
-            global_g = 1.0;
-            global_b = 1.0;
-            global_intensidade = 0.2;
+            setIntensidade(ledsLigados, 0.2);
+            desenho_pio(ledsLigados, valor_led, pio, sm, 1.0, 1.0, 1.0);
+            while (1) {
+                char tecla = get_tecla();
+                if (tecla != '#') {
+                    desenho_pio(ledsDesligados, valor_led, pio, sm, 0.0, 0.0, 0.0);
+                    break;
+                }
+            }
             break;
         default:
-            desenho_pio(ledsLigados, valor_led, pio, sm, 0.0, 0.0, 0.0);
             break;
-
         }
-        sleep_ms(100);
+        sleep_ms(50);
     }
     return 0;
 }
