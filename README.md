@@ -22,7 +22,7 @@ Este projeto utiliza o Raspberry Pi Pico W, um teclado matricial 4x4 e uma matri
 
 1. **Controle da matriz de LEDs**:
    - Cada tecla numérica (0 a 9) ativa uma animação diferente na matriz de LEDs.
-   - Cada animação possui no mínimo 5 frames
+   - Cada animação possui no mínimo 5 frames, com uma taxa de 1 FPS (1 frame por segundo).
 
 2. **Funções de controle:**
    - Tecla A: Desliga todos os LEDs.
@@ -30,12 +30,16 @@ Este projeto utiliza o Raspberry Pi Pico W, um teclado matricial 4x4 e uma matri
    - Tecla C: Liga todos os LEDs na cor vermelha (80% de intensidade).
    - Tecla D: Liga todos os LEDs na cor verde (50% de intensidade).
    - Tecla #: Liga todos os LEDs na cor branca (20% de intensidade).
+  
+3. **Função do buzzer:**
+   - Todas as teclas de 0 a 9 emitem sinal sonoro com buzzer, assim como a animação.
 
 
 ## Requisitos de Execução
 - **Hardware:** 
   - Raspberry Pi Pico W
   - Teclado matricial 4x4
+  - Componente Buzzer
   - Matriz de LEDs Coloridos (LED-RGB 5x5 WS2812)
 - **Software:**
   - Visual Studio Code com Pico SDK configurado
@@ -63,6 +67,7 @@ Este projeto utiliza o Raspberry Pi Pico W, um teclado matricial 4x4 e uma matri
 - **`pio_matrix.c`**: Contém a lógica principal para ler o teclado 4x4 e fazer o acionamento da matriz de LEDs, além de regular a coloração e intensidade dos LEDs.
 - **`diagram.json`**: Configuração física do projeto no simulador Wokwi.
 - **`desenhos`**: Contém os desenhos que serão feitos na matriz de LEDs.
+- **`buzzers`**: Contém os códigos responsáveis pelos sinais sonoros do buzzer.
 - **`pio_matrix.pio`**: Contém a configuração em Assembly para funcionamento do pio.
 - **`README.md`**: Documentação detalhada do projeto.
 
